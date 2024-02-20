@@ -1,0 +1,53 @@
+body {
+	background-color: #333333;
+	margin: 20px;
+}
+p {
+	color: #ffffc3;
+	text-align: justify;
+}
+span {
+	color: #33ffff;	
+}
+h1 {
+	color: #eeeeee
+}
+P.normalny {
+	font-family: Helvetica; font-size: 10pt
+}
+P.przypisy {
+	font-family: Helvetica; font-size: 8pt
+}
+P.uwagi {
+	font-family: Helvetica; font-size: 10pt; font-weight: bold
+}	
+.istotne {
+	font-family: Helvetica; font-size: 14pt; font-weight: bold; color: lime
+	} 
+.klasa_1 {
+	font-family:Verdana,Tahoma,ArialCE,HelvaticaCE,Arial,Helvetica,sans-serif;
+}
+.klasa_2 {
+	font-size:15px;
+}	
+.wazne {
+	color:yellow
+}
+#green {
+	font-size: 20pt;
+	color: green;
+	text-align: justify;
+}
+A:active {
+	color:blue;
+}
+A:link {
+	color:black;
+}
+A:visited {
+	color:grenn;
+}
+A:hover {
+	color:red;
+	text-decoration:underline;
+}
