@@ -15,3 +15,19 @@ h1 {
 	border: 2px solid red; 
 	background: rgb(255,255,155); 
 } 
+.scrollbar {
+  background-color: #E4E4D0;
+  overflow-y: scroll;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, black, green, white);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #E4E4D0;
+}
