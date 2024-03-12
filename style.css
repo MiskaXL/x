@@ -16,3 +16,22 @@ h1 {
 	border: 2px solid red; 
 	background: rgb(255,255,155); 
 } 
+    ::-webkit-scrollbar {
+        width: 40px;
+        background-color: #FFFFFF;
+    }
+
+    /* Kolor tracka (tła scrollbar) AA66FF*/
+    ::-webkit-scrollbar-track {
+         background-image: linear-gradient(black, orange);
+    }
+
+    /* Kolor thumba (przewijającego się elementu) */
+    ::-webkit-scrollbar-thumb {
+        background-color: #000000;
+        border-radius: 6px;
+        background-image: url("scroll.jpg"); /* Ścieżka do obrazka */
+        background-repeat: repeat;
+        background-position: center;
+    }
+    
