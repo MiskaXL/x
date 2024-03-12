@@ -17,7 +17,7 @@ h1 {
 	background: rgb(255,255,155); 
 } 
     ::-webkit-scrollbar {
-        width: 40px;
+        width: 30px;
         background-color: #FFFFFF;
     }
 
@@ -31,7 +31,7 @@ h1 {
         background-color: #000000;
         border-radius: 6px;
         background-image: url("scroll.jpg"); /* Ścieżka do obrazka */
-        background-repeat: repeat;
+        background-repeat: no-repeat;
         background-position: center;
     }
     
