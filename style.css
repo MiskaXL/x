@@ -41,10 +41,12 @@ h1 {
 
 
 .color-change {
-    width: 50px;
-    height: 20px;
-    background-color: #DDDDDD;
-    animation: changeColor 5s infinite;
+
+	text-algin: center;
+	width: 50px;
+	height: 20px;
+	background-color: #DDDDDD;
+	animation: changeColor 5s infinite;
 }
 
 @keyframes changeColor {
