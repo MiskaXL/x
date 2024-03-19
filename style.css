@@ -5,8 +5,7 @@ body {
 }
 div {
 	color: ; 
-	 
-	background-image: url("https://www.bing.com/images/search?view=detailV2&ccid=cEHojs2y&id=B6EBF1852766A61C3F4376A3ACE4584C753735C2&thid=OIP.cEHojs2yoVI2_Zh9C_n64gAAAA&mediaurl=https%3a%2f%2fstatic.wikia.nocookie.net%2fdawidjasper%2fimages%2fc%2fcd%2fMi%c5%9bka.png%2frevision%2flatest%3fcb%3d20221208143352&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.7041e88ecdb2a15236fd987d0bf9fae2%3frik%3dwjU3dUxY5Kyjdg%26pid%3dImgRaw%26r%3d0&exph=225&expw=225&q=mi%c5%9bka+dawid+jasper+pies&simid=608032434817546231&FORM=IRPRST&ck=70A4C20398915116DD9E4B2F1C1C9BAE&selectedIndex=0&itb=0&ajaxhist=0&ajaxserp=0");
+	background: #DDDDDD; 
 	width: 400px; 
 	border: 5px #ffc40c solid;
 	text-algin: center;
