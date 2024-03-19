@@ -41,4 +41,6 @@ h1 {
 	-o-transition: background 0.5s linear;
 	transition: background 0.5s linear;
 }
-    
+.textshadow {
+	text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+}
