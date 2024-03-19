@@ -35,6 +35,7 @@ h1 {
         background-position: center;
     }
 A:kafelek {
+	background: #DDDDDD;
 	-webkit-transition: background 0.5s linear;
 	-moz-transition: background 0.5s linear;
 	-ms-transition: background 0.5s linear;
