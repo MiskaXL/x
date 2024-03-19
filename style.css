@@ -38,3 +38,23 @@ h1 {
 .textshadow {
 	text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
 }
+
+
+.color-change {
+    width: 100%;
+    height: 100vh;
+    background-color: #DDDDDD;
+    animation: changeColor 5s infinite;
+}
+
+@keyframes changeColor {
+    0% {
+        background-color: #DDDDDD;
+    }
+    50% {
+        background-color: #FCE7B7;
+    }
+    100% {
+        background-color: #DDDDDD;
+    }
+}
