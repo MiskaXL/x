@@ -27,7 +27,9 @@
 		<br>
 		<div>
 		<h2 class="textshadow">Stare pliki</h2>
-		<p>=======================</p>
+		<button onclick="toggleLinks()">Pokaż/ukryj linki</button>
+<div class="links">
+<p>=======================</p>
 		<a href="roboczy/01_strona_podstawy/1strona.html">1strona</a>
 		<a href="roboczy/01_strona_podstawy/Edycja tekstu.html"Edycja tesktu</a>
 		<a href="roboczy/01_strona_podstawy/zwierzaki.html">Zwierzaki</a>
@@ -64,6 +66,18 @@
 		<p>=======================</p>
 		<a href="roboczy/10_styl_zew/styl_zew.html">stylzew</a>
 		<p>=======================</p>
+</div>
+
+<script>
+function toggleLinks() {
+  var links = document.querySelector('.links');
+  if (links.style.display === 'none') {
+    links.style.display = 'block';
+  } else {
+    links.style.display = 'none';
+  }
+}
+</script>
 		</div>
 
 			
