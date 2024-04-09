@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pl">
+	<head>
+	  <meta charset="utf-8">
+	  <title>Pierwsza strona</title>
+	  <meta name="description" content="Oto moja pierwsza strona na zajęciach">
+	  <meta name="keywords" content="szkoła, lekcje, temat, nauka, html">
+	  <meta name="author" content="Arek Koczwara">
+	  
+	  <style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+			margin-top: 50px;
+		}
+		input {
+			padding: 5px;
+			margin: 10px;
+		}
+		.board {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 5px;
+			width: 300px;
+			margin: 0 auto;
+			padding: 10px;
+		}
+		.cell {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100px;
+			height: 100px;
+			background-color: lightblue;
+			font-size: 2em;
+			cursor: pointer;
+		}
+		    #canvas {
+      border: 1px solid #000;
+    }
+    #colors {
+      margin-top: 10px;
+    }
+    .color {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+		 body {
+    transform: rotate(0deg);
+  }
+    body {
+    transition: background-color 0.5s;
+  }
+	</style>
+	  
+	  
+	  
+</head>
+<body>
+	<div style="margin: 30px;border: 2px solid black;padding: 30px;background-color: #FFF; width: 1000px">
+	<div id="czas"></div>
+	<script>
+			function aktualnaGodzina() {
+			const czas = new Date();
+
+			const Polska = czas.toLocaleTimeString('pl-PL', {timeZone: 'Europe/Warsaw'});
+			const USA = czas.toLocaleTimeString('en-US', {timeZone: 'America/New_York'});
+			const Japonia = czas.toLocaleTimeString('ja-JP', {timeZone: 'Asia/Tokyo'});
+			const Brazylia = czas.toLocaleTimeString('pt-BR', {timeZone: 'America/Sao_Paulo'});
+			const Australia = czas.toLocaleTimeString('en-AU', {timeZone: 'Australia/Sydney'});
+
+			document.getElementById('czas').innerHTML = `
+			<p>W Polsce jest godzina: ${Polska}</p>
+			<p>W USA jest godzina: ${USA}</p>
+			<p>W Japonii jest godzina: ${Japonia}</p>
+			<p>W Brazylii jest godzina: ${Brazylia}</p>
+			<p>W Australii jest godzina: ${Australia}</p>
+		`;
+		}
+
+		setInterval(aktualnaGodzina, 1000);
+	</script>
+	
+	<div class="board"></div>
+
+<script>
+    const board = document.querySelector('.board');
+    let currentPlayer = 'X';
+    let gameBoard = ['', '', '', '', '', '', '', '', ''];
+
+    const checkWinner = () => {
+        const winningCombinations = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // horizontal
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // vertical
+            [0, 4, 8], [2, 4, 6]            // diagonal
+        ];
+
+        for (let combination of winningCombinations) {
+            const [a, b, c] = combination;
+            if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+                alert(`${currentPlayer} wins!`);
+                resetBoard();
+            }
+        }
+    };
+
+    const resetBoard = () => {
+        gameBoard = ['', '', '', '', '', '', '', '', ''];
+        board.innerHTML = '';
+        currentPlayer = 'X';
+        renderBoard();
+    };
+
+    const makeMove = (index) => {
+        if (gameBoard[index] === '') {
+            gameBoard[index] = currentPlayer;
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            renderBoard();
+            checkWinner();
+        }
+    };
+
+    const renderBoard = () => {
+        board.innerHTML = '';
+        gameBoard.forEach((cell, index) => {
+            const cellElement = document.createElement('div');
+            cellElement.classList.add('cell');
+            cellElement.textContent = cell;
+            cellElement.addEventListener('click', () => makeMove(index));
+            board.appendChild(cellElement);
+        });
+    };
+
+    renderBoard();
+</script>
+
+<input type="color" id="colorPicker">
+<input type="text" id="hexColor" placeholder="Enter hex color">
+<button onclick="changeBackgroundColor()">Change Color</button>
+
+	<script>
+  const colorPicker = document.getElementById('colorPicker');
+  const hexColor = document.getElementById('hexColor');
+
+  function changeBackgroundColor() {
+    const selectedColor = colorPicker.value || hexColor.value;
+    document.body.style.backgroundColor = selectedColor;
+  }
+
+  colorPicker.addEventListener('change', () => {
+    hexColor.value = colorPicker.value;
+  });
+
+  hexColor.addEventListener('input', () => {
+    colorPicker.value = hexColor.value;
+  });
+</script>
+	<br>
+	<br>
+  <canvas id="canvas" width="200" height="200"></canvas>
+  <div id="colors">
+    <div class="color" style="background-color: black;"></div>
+    <div class="color" style="background-color: white;"></div>
+    <div class="color" style="background-color: red;"></div>
+    <div class="color" style="background-color: green;"></div>
+    <div class="color" style="background-color: blue;"></div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    let isDrawing = false;
+    let currentColor = 'black';
+
+    canvas.addEventListener('mousedown', () => {
+      isDrawing = true;
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (isDrawing) {
+        context.fillStyle = currentColor;
+        context.fillRect(e.offsetX, e.offsetY, 5, 5);
+      }
+    });
+
+    canvas.addEventListener('mouseup', () => {
+      isDrawing = false;
+    });
+
+    const colorButtons = document.querySelectorAll('.color');
+    colorButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        currentColor = button.style.backgroundColor;
+      });
+    });
+  </script>
+	
+	<h1>Przyciemnij i rozjaśnij stronę</h1>
+<input type="range" min="0" max="100" value="50" id="brightnessRange">
+<script>
+  const brightnessRange = document.getElementById('brightnessRange');
+  brightnessRange.addEventListener('input', function() {
+    const brightnessValue = this.value / 100;
+    document.body.style.backgroundColor = `rgba(0, 0, 0, ${brightnessValue})`;
+  });
+</script>
+	
+	<h1>Losuj numer od 1 do 100</h1>
+    <button onclick="generateRandomNumber()">Generate Number</button>
+    <p id="random-number"></p>
+
+    <script>
+        function generateRandomNumber() {
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            document.getElementById('random-number').innerText = `Random Number: ${randomNumber}`;
+        }
+    </script>
+	
+	
+	
+	<br>
+	<h1>Kliknij by obrócić stronę</h1>
+	<button style="background-color: #FF0000; color: #FFF" onclick="rotatePage()">Rotate Page</button>
+<script>
+  function rotatePage() {
+    const body = document.querySelector('body');
+    const currentRotation = parseFloat(body.style.transform.replace('rotate(', '').replace('deg)', ''));
+    if (currentRotation === 0) {
+      body.style.transform = 'rotate(180deg)';
+    } else {
+      body.style.transform = 'rotate(0deg)';
+    }
+  }
+</script>
+	
+	
+	</div>	
+</body>
+</html>
