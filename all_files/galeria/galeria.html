@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pl">
+	<head>
+	  <meta charset="utf-8">
+	  <title>Pierwsza strona</title>
+	  <meta name="description" content="Oto moja pierwsza strona na zajęciach">
+	  <meta name="keywords" content="szkoła, lekcje, temat, nauka, html">
+	  <meta name="author" content="Arek Koczwara">
+	  <link rel="stylesheet" href="style.css" type="text/css">
+	
+	</head>
+	<body>
+		
+		
+		<div class="gallery">
+        <div class="image">
+            <img src="zdjecia\zdj1.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="zdjecia\zdj2.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="zdjecia\zdj3.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="zdjecia\zdj4.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="zdjecia\zdj5.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="zdjecia\zdj6.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="zdjecia\zdj7.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="zdjecia\zdj8.jpg" alt="">
+        </div>
+        <div class="image">
+            <img src="zdjecia\zdj9.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="fullscreen">
+        <img src="" alt="">
+    </div>
+		
+		<script>
+        const images = document.querySelectorAll('.image');
+        const fullscreen = document.querySelector('.fullscreen');
+        const fullscreenImg = fullscreen.querySelector('img');
+
+        images.forEach((image, index) => {
+            image.addEventListener('click', () => {
+                fullscreenImg.src = image.querySelector('img').src;
+                fullscreen.classList.toggle('active');
+            });
+        });
+
+        fullscreen.addEventListener('click', () => {
+            fullscreen.classList.remove('active');
+        });
+		</script>
+	</body>
+</html>
