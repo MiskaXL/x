@@ -19,8 +19,6 @@
 		<a href="all_files/galeria/galeria.html">Galeria</a><br>
 		<a href="JS/JS_test.html">JS</a>
 		<p>=======================</p>
-		<button onclick="toggleLinks()">Pokaż/ukryj linki</button>
-		<div class="links">
 		<p>=======================</p>
 		<a href="budowa/index.html">budowa komputera</a><br>
 		<a href="roboczy/10_styl_zew/brzechwa.html">brzechwa</a><br>
@@ -29,7 +27,7 @@
 		<a href="szablony/szablon2/zadanie.html">Szablon2</a>
 		<a href="szablony/SzablonWies/szablon3.html">Moja wies</a>
 		<p>=======================</p>
-		</div>
+		
 		</div>
 		<br>
 		
@@ -37,7 +35,7 @@
 		<div class="divy">
 		<h2 class="textshadow">Stare pliki</h2>
 		<button onclick="toggleLinks()">Pokaż/ukryj linki</button>
-		<div class="links2">
+		<div class="links">
 		<p>=======================</p>
 		<a href="roboczy/01_strona_podstawy/1strona.html">1strona</a>
 		<a href="roboczy/01_strona_podstawy/Edycja tekstu.html"Edycja tesktu</a>
@@ -84,16 +82,6 @@ function toggleLinks() {
     links.style.display = 'block';
   } else {
     links.style.display = 'none';
-  }
-}
-</script>
-<script>
-function toggleLinks() {
-  var links2 = document.querySelector('.links2');
-  if (links2.style.display === 'none') {
-    links2.style.display = 'block';
-  } else {
-    links2.style.display = 'none';
   }
 }
 </script>
