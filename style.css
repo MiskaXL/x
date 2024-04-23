@@ -38,5 +38,9 @@ h1 {
 .textshadow {
 	text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
 }
-
-
+.links {
+   	display: none;
+}
+.links2 {
+   	display: none;
+}
