@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pl">
+	<head>
+	  <meta charset="utf-8">
+	  <title>Pierwsza strona</title>
+	  <meta name="description" content="Oto moja pierwsza strona na zajęciach">
+	  <meta name="keywords" content="szkoła, lekcje, temat, nauka, html">
+	  <meta name="author" content="Arek Koczwara">
+	</head>
+	<body>
+		
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+
+      // Set the background color
+      ctx.fillStyle = '#ADD8E6'; // light blue
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw the road
+      ctx.fillStyle = '#808080'; // grey
+      ctx.fillRect(0, canvas.height / 2, canvas.width, 50);
+
+      // Draw the trees
+      function drawTree(x, y) {
+        ctx.fillStyle = '#228B22'; // green
+        ctx.beginPath();
+        ctx.arc(x, y, 10, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+      for (let i = 0; i < 10; i++) {
+        drawTree(50 + i * 100, canvas.height / 2 - 20);
+      }
+
+      // Draw the car
+      let carX = 0;
+      let carY = canvas.height / 2 - 25;
+      let carWidth = 50;
+      let carHeight = 25;
+      let carSpeed = 2;
+
+      function drawCar() {
+        ctx.fillStyle = '#FF0000'; // red
+        ctx.fillRect(carX, carY, carWidth, carHeight);
+      }
+
+      // Animate the car
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#ADD8E6'; // light blue
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = '#808080'; // grey
+        ctx.fillRect(0, canvas.height / 2, canvas.width, 50);
+
+        for (let i = 0; i < 10; i++) {
+          drawTree(50 + i * 100, canvas.height / 2 - 20);
+        }
+
+        drawCar();
+
+        carX += carSpeed;
+        if (carX > canvas.width) {
+          carX = 0;
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    </script>
+
+	</body>
+</html>
