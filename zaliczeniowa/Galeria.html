@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Adamowice - Galeria </title>
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div class="title"><h1>Adamowice - Galeria</h1></div>
+    <div class="menu">
+        <button><a href="1strona.html">Strona główna</a></button>
+        <button><a href="Historia.html">Informacje o wsi</a></button>
+        <button><a href="Szkola.html">Szkoła podstawowa</a></button>
+        <button><a href="Atrakcje.html">Atrakcje</a></button>
+        <button style="background-color:grey"><a href="Galeria.html">Galeria</a></button>
+    </div>
+    <div class="content">
+        
+<div class="gallery">
+    <img src="zdj/image1.jpg" onclick="openModal('zdj/image1.jpg')">
+    <img src="zdj/image2.jpg" onclick="openModal('zdj/image2.jpg')">
+    <img src="zdj/image3.jpg" onclick="openModal('zdj/image3.jpg')">
+    <img src="zdj/image4.jpg" onclick="openModal('zdj/image4.jpg')">
+    <img src="zdj/image5.jpg" onclick="openModal('zdj/image5.jpg')">
+    <img src="zdj/image6.jpg" onclick="openModal('zdj/image6.jpg')">
+    <img src="zdj/image7.jpg" onclick="openModal('zdj/image7.jpg')">
+    <img src="zdj/image8.jpg" onclick="openModal('zdj/image8.jpg')">
+    <img src="zdj/image9.jpg" onclick="openModal('zdj/image9.jpg')">
+    <img src="zdj/image10.jpg" onclick="openModal('zdj/image10.jpg')">
+    <img src="zdj/image11.jpg" onclick="openModal('zdj/image11.jpg')">
+</div>
+          
+<div id="myModal" class="modal">
+    <span class="prev" onclick="plusSlides(-1)">&#10094;</span>
+    <img id="modalImg" src="" alt="">
+    <span class="next" onclick="plusSlides(1)">&#10095;</span>
+</div>
+
+<script>
+    var modal = document.getElementById("myModal");
+    var modalImg = document.getElementById("modalImg");
+    var images = document.querySelectorAll('.gallery img');
+    var slideIndex = 0;
+
+    function openModal(imagePath) {
+        modal.style.display = "flex";
+        modalImg.src = imagePath;
+        slideIndex = Array.from(images).indexOf(document.querySelector(`img[src='${imagePath}']`));
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    function plusSlides(n) {
+        slideIndex += n;
+        if (slideIndex >= images.length) {
+            slideIndex = 0;
+        }
+        if (slideIndex < 0) {
+            slideIndex = images.length - 1;
+        }
+        modalImg.src = images[slideIndex].src;
+    }
+
+    modal.onclick = function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    };
+
+</script>
+
+
+
+
+    </div>
+    <div class="footer">...</div>
+
+
+
+</body>
+</html>
